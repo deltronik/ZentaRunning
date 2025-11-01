@@ -13,5 +13,34 @@ import Navbar from "../components/nav.astro";
         <Navbar />
         <slot />
         <!-- Aquí se inserta el contenido de cada página -->
+        <footer class="footer">
+            <p>
+                Esto es un prototipo, hecho por <strong>El Dany</strong> —
+                <a href="https://github.com/deltronik" target="_blank">GitHub</a
+                >
+            </p>
+        </footer>
     </body>
 </html>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #f1f1f1;
+        font-size: 0.9rem;
+        color: #555;
+        border-top: 1px solid #ddd;
+    }
+    .footer a {
+        color: #1d3557;
+        text-decoration: none;
+    }
+    .footer a:hover {
+        text-decoration: underline;
+    }
+</style>
