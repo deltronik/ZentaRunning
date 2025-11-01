@@ -1,8 +1,49 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/Base.astro";
 ---
 
-<Layout />
+<BaseLayout>
+    <header class="hero">
+        <i>&#x1F3C3;</i>
+        <h1>Zenta Running</h1>
+    </header>
+
+    <main class="main-content">
+        <section>
+            <h2>Próximo evento</h2>
+            <p>La próxima carrera se celebrará en <strong>45 días</strong>.</p>
+            <p>
+                Distancias: <strong>5K</strong> (participativa) y <strong
+                    >10K</strong
+                > (competitiva).
+            </p>
+            <a href="/carrera" class="cta">Ver detalles del evento</a>
+        </section>
+    </main>
+</BaseLayout>
+
+<style>
+    .hero {
+        text-align: center;
+        margin: 2rem 0;
+    }
+    .hero img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+    .main-content {
+        text-align: center;
+    }
+    .cta {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.75rem 1.5rem;
+        background: #e63946;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .cta:hover {
+        background: #d62828;
+    }
+</style>

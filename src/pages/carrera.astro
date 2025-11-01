@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/Base.astro";
+---
+
+<BaseLayout>
+    <main class="container">
+        <h1>Carrera Zenta Running 2025</h1>
+        <p>Participá en nuestra carrera anual con distancias de 5K y 10K.</p>
+
+        <section>
+            <h2>Detalles</h2>
+            <ul>
+                <li>📅 Fecha: 15 de diciembre de 2025</li>
+                <li>📍 Lugar: Plaza Central, Salta</li>
+                <li>🏃‍♀️ 5K Participativa — 🏅 10K Competitiva</li>
+            </ul>
+        </section>
+
+        <a href="/form" class="cta">Inscribirme</a>
+    </main>
+</BaseLayout>
+
+<style>
+    .container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1rem;
+    }
+    .cta {
+        display: inline-block;
+        margin-top: 2rem;
+        background: #1d3557;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+    .cta:hover {
+        background: #457b9d;
+    }
+</style>
