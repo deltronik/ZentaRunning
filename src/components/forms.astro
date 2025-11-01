@@ -6,6 +6,7 @@
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
+        enctype="multipart/form-data"
     >
         <input type="hidden" name="form-name" value="inscripcion-carrera" />
 
@@ -61,11 +62,30 @@
             <input type="text" id="comprobante" name="comprobante" required />
         </div>
 
+        <div>
+            <label for="foto">Subí tu foto (opcional):</label>
+            <input type="file" id="foto" name="foto" accept="image/*" />
+            <small
+                >⚠️ En el plan gratuito de Netlify no se guardará la imagen.</small
+            >
+        </div>
+
+        <div class="terms">
+            <input type="checkbox" id="acepto" name="acepto" required />
+            <label for="acepto">Acepto los términos y condiciones</label>
+            <a
+                href="/termsandcondition"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="terms-link">Ver términos y condiciones</a
+            >
+        </div>
+
         <button type="submit">Enviar Inscripción</button>
     </form>
 </main>
+
 <style>
-    /* src/styles/styles.css */
     main {
         display: flex;
         flex-direction: column;
@@ -81,14 +101,46 @@
         gap: 1rem;
         max-width: 500px;
         width: 100%;
+        background: #fafafa;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .terms {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .terms-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .terms-link:hover {
+        text-decoration: underline;
     }
 
     button {
         margin-top: 1rem;
-        padding: 0.5rem;
+        padding: 0.75rem;
         background-color: #007bff;
         color: white;
         border: none;
+        border-radius: 4px;
         cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
     }
 </style>
