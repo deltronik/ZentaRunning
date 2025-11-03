@@ -1,50 +1,73 @@
 ---
-import BaseLayout from "../layouts/Base.astro";
+
 ---
 
-<BaseLayout>
-    <header class="hero">
-        <img src="/zenta.jpg" alt="Zenta Running" />
-        <h1>Zenta Running</h1>
-    </header>
-
-    <main class="main-content">
-        <section>
-            <h2>Próximo evento</h2>
-            <p>La próxima carrera se celebrará en <strong>45 días</strong>.</p>
-            <p>
-                Distancias: <strong>5K</strong> (participativa) y <strong
-                    >10K</strong
-                > (competitiva).
-            </p>
-            <a href="/carrera" class="cta">Ver detalles del evento</a>
-        </section>
-    </main>
-</BaseLayout>
-
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Zenta Running</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header>
+            <h1>Zenta Running</h1>
+        </header>
+        <main>
+            <img src="zenta.jpg" alt="Zenta Running Club" />
+            <h2>Ya volvemos., Aun nos quedan un par de kilometros mas...</h2>
+        </main>
+    </body>
+</html>
 <style>
-    .hero {
-        text-align: center;
-        margin: 2rem 0;
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        background-image: url(background.png);
+        background-size: cover;
     }
-    .hero img {
-        max-width: 100%;
-        border-radius: 10px;
-    }
-    .main-content {
-        text-align: center;
-        flex: 1;
-    }
-    .cta {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.75rem 1.5rem;
-        background: #e63946;
+    header {
+        background-color: #121212;
         color: white;
-        border-radius: 8px;
-        text-decoration: none;
+        height: 3rem;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        h1 {
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            margin-inline-start: 5px;
+            color: #fff;
+        }
     }
-    .cta:hover {
-        background: #d62828;
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        flex-direction: column;
+        img {
+            border-radius: 50%;
+            border: 3px #2c2c2c solid;
+        }
+        h2 {
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            margin-inline-start: 5px;
+            text-align: center;
+            color: #fff;
+        }
     }
 </style>
