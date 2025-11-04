@@ -1,0 +1,33 @@
+---
+import Nav from "./header/nav.astro";
+---
+
+<header>
+    <section class="nav-bar">
+        <div class="logo">
+            <h2>Zenta Running</h2>
+        </div>
+        <Nav />
+    </section>
+</header>
+<style>
+    header {
+        width: 100%;
+        min-height: 50dvw;
+    }
+    .nav-bar {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        left: 0;
+        top: 0;
+        background-color: light-dark(#000, #fff);
+        height: 4rem;
+        position: fixed;
+        width: 100dvw;
+        h2 {
+            color: light-dark(#fff, #000);
+            margin-inline-start: 5px;
+        }
+    }
+</style>

@@ -1,6 +1,6 @@
 ---
 //import "../css/global.css";
-import Navbar from "../components/nav.astro";
+import Header from "./../components/header.astro";
 ---
 
 <html lang="es">
@@ -10,7 +10,7 @@ import Navbar from "../components/nav.astro";
         <title>Zenta Running</title>
     </head>
     <body>
-        <Navbar />
+        <Header />
         <slot />
         <!-- Aquí se inserta el contenido de cada página -->
         <h4>Casilla de comentarios, criticas y/o sugerencias</h4>
@@ -69,6 +69,7 @@ import Navbar from "../components/nav.astro";
 </html>
 <style>
     body {
+        color-scheme: light dark;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
