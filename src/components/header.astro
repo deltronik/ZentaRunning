@@ -5,15 +5,17 @@ import Nav from "./header/nav.astro";
 <header>
     <section class="nav-bar">
         <div class="logo">
+            <img src="newlogo.png" alt="Zenta running club logo" />
             <h2>Zenta Running</h2>
         </div>
         <Nav />
     </section>
 </header>
 <style>
+    @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
     header {
         width: 100%;
-        min-height: 50dvw;
+        padding-block-start: 6rem;
     }
     .nav-bar {
         align-items: center;
@@ -22,12 +24,27 @@ import Nav from "./header/nav.astro";
         left: 0;
         top: 0;
         background-color: light-dark(#000, #fff);
-        height: 4rem;
+        height: 5rem;
         position: fixed;
         width: 100dvw;
-        h2 {
-            color: light-dark(#fff, #000);
-            margin-inline-start: 5px;
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                height: 4rem;
+                margin-inline-start: 2px;
+                border-radius: 50%;
+                border: 1px solid gray;
+            }
+            h2 {
+                color: light-dark(#8ac355, #000);
+                font-family: "Caveat", cursive;
+                font-optical-sizing: auto;
+                font-weight: 800;
+                font-size: 3rem;
+                font-style: normal;
+            }
         }
     }
 </style>

@@ -1,104 +1,40 @@
 ---
-//import "../css/global.css";
+import "../css/resetCSS.css";
 import Header from "./../components/header.astro";
+import Footer from "./../components/footer.astro";
+import Zenta from "./../components/commentsZentaGroup.astro";
 ---
 
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
         <title>Zenta Running</title>
     </head>
     <body>
+        <Zenta />
         <Header />
-        <slot />
-        <!-- Aquí se inserta el contenido de cada página -->
-        <h4>Casilla de comentarios, criticas y/o sugerencias</h4>
-        <p>
-            La plataforma web para inscribirse a la carrera está en fase de
-            prueba y necesitamos su ayuda para dejarla impecable antes de su
-            lanzamiento oficial.
-        </p>
-        <p>
-            Hemos habilitado la sección de comentarios en esta página para que
-            sea muy fácil darnos su opinión. Les pedimos que dejen aquí abajo
-            cualquier comentario, sugerencia o crítica que tengan.
-        </p>
-        <p>
-            Si encuentran algo que no funciona bien, si hay un error en alguna
-            palabra, si una parte del diseño les parece confusa, o si tienen una
-            idea para que la inscripción sea más sencilla... ¡todo es
-            bienvenido!
-        </p>
-        <div id="disqus_thread"></div>
-        <script>
-            /**
-             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-            /*
-            var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            */
-            (function () {
-                // DON'T EDIT BELOW THIS LINE
-                var d = document,
-                    s = d.createElement("script");
-                s.src = "https://zentarunning.disqus.com/embed.js";
-                s.setAttribute("data-timestamp", +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        </script>
-        <noscript
-            >Please enable JavaScript to view the <a
-                href="https://disqus.com/?ref_noscript"
-                >comments powered by Disqus.</a
-            ></noscript
-        >
-        <footer class="footer">
-            <p>
-                Esto es un prototipo, hecho por <strong>El Dany</strong> —
-                <a href="https://github.com/deltronik" target="_blank">GitHub</a
-                >
-            </p>
-        </footer>
+        <main>
+            <slot />
+        </main>
+        <Footer />
     </body>
-    <script id="dsq-count-scr" src="//zentarunning.disqus.com/count.js" async
-    ></script>
 </html>
-<style>
-    body {
-        color-scheme: light dark;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-    h4 {
-        text-align: center;
-        font-size: 3rem;
-        width: 100%;
-        border-block-start: 2px solid #1c1c1c;
-        padding-block-start: 2rem;
-    }
-    p {
-        text-align: center;
-        font-size: 1rem;
-        width: 100%;
-    }
-    .footer {
-        text-align: center;
-        padding: 1rem;
-        background-color: #f1f1f1;
-        font-size: 0.9rem;
-        color: #555;
-        border-top: 1px solid #ddd;
-    }
-    .footer a {
-        color: #1d3557;
-        text-decoration: none;
-    }
-    .footer a:hover {
-        text-decoration: underline;
-    }
-</style>
