@@ -1,158 +1,106 @@
-<!doctype html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Caja de comentarios flotante (HTML + CSS)</title>
-        <style>
-            /* Ocultar el checkbox */
-            #toggle-comments {
-                display: none;
-            }
+---
 
-            /* Botón flotante */
-            label[for="toggle-comments"] {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background-color: #0078ff;
-                color: white;
-                border: none;
-                border-radius: 50%;
-                width: 60px;
-                height: 60px;
-                font-size: 28px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                cursor: pointer;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-                transition:
-                    transform 0.2s ease,
-                    background-color 0.3s;
-                z-index: 9999;
-            }
+---
 
-            label[for="toggle-comments"]:hover {
-                background-color: #005fd1;
-                transform: scale(1.1);
-            }
+<style>
+    /* Botón flotante */
+    .comments-btn {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #0070f3;
+        color: #fff;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 99999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
 
-            /* Caja flotante oculta */
-            .comment-box {
-                position: fixed;
-                inset: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: rgba(0, 0, 0, 0.6);
-                backdrop-filter: blur(4px);
-                z-index: 9998;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.3s ease;
-            }
+    .comments-btn:hover {
+        background: #005ad3;
+        transform: scale(1.05);
+    }
 
-            /* Mostrar cuando el checkbox está activado */
-            #toggle-comments:checked ~ .comment-box {
-                opacity: 1;
-                pointer-events: all;
-            }
+    /* Ventana flotante */
+    .comments-window {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+        z-index: 99998;
+        padding: 1rem;
+        display: none;
+        overflow-y: auto;
+    }
 
-            /* Contenedor interno */
-            .comment-content {
-                background: #fff;
-                width: 90%;
-                max-width: 800px;
-                height: 80%;
-                border-radius: 16px;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-                padding: 20px;
-                position: relative;
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-            }
+    .comments-window.active {
+        display: block;
+        animation: fadeIn 0.2s ease forwards;
+    }
 
-            /* Botón de cierre */
-            .close-btn {
-                position: absolute;
-                top: 12px;
-                right: 16px;
-                font-size: 28px;
-                color: #333;
-                cursor: pointer;
-                transition: color 0.3s;
-            }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
 
-            .close-btn:hover {
-                color: #ff4c4c;
-            }
+<!-- Botón flotante -->
+<button class="comments-btn" id="commentsToggle">💬</button>
 
-            /* Cerrar el modal cuando se hace clic en el botón de cerrar */
-            .close-btn {
-                pointer-events: all;
-            }
+<!-- Div flotante -->
+<div class="comments-window" id="commentsWindow">
+    <!-- Pegá aquí tu código de Disqus -->
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement("script");
+            s.src = "https://zentarunning.disqus.com/embed.js";
+            s.setAttribute("data-timestamp", +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript
+        >Please enable JavaScript to view the <a
+            href="https://disqus.com/?ref_noscript"
+            >comments powered by Disqus.</a
+        ></noscript
+    >
+</div>
 
-            /* “Clic fuera” — simulación */
-            .comment-box::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-            }
+<script>
+    const btn = document.getElementById("commentsToggle");
+    const win = document.getElementById("commentsWindow");
+    let open = false;
 
-            /* Para el área interior */
-            #disqus-placeholder {
-                flex: 1;
-                overflow-y: auto;
-                margin-top: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Checkbox invisible que controla la visibilidad -->
-        <input type="checkbox" id="toggle-comments" />
-
-        <!-- Botón flotante -->
-        <label for="toggle-comments" title="Abrir comentarios">💬</label>
-
-        <!-- Caja flotante -->
-        <div class="comment-box">
-            <div class="comment-content">
-                <label for="toggle-comments" class="close-btn" title="Cerrar"
-                    >&times;</label
-                >
-                <div id="disqus-placeholder">
-                    <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function () {
-                            // DON'T EDIT BELOW THIS LINE
-                            var d = document,
-                                s = d.createElement("script");
-                            s.src = "https://zentarunning.disqus.com/embed.js";
-                            s.setAttribute("data-timestamp", +new Date());
-                            (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                    <noscript
-                        >Please enable JavaScript to view the <a
-                            href="https://disqus.com/?ref_noscript"
-                            >comments powered by Disqus.</a
-                        ></noscript
-                    >
-                </div>
-            </div>
-        </div>
-    </body>
-    <script id="dsq-count-scr" src="//zentarunning.disqus.com/count.js" async
-    ></script>
-</html>
+    btn.addEventListener("click", () => {
+        open = !open;
+        win.classList.toggle("active", open);
+        btn.textContent = open ? "×" : "💬";
+    });
+</script>
