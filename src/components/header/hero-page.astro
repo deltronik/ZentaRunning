@@ -12,7 +12,7 @@
         <p>
             <span id="dias">00</span> Dias, <span id="horas">00</span> Horas, <span
                 id="minutos">00</span
-            > y Minutos
+            >Minutos y <span id="segundos">00</span>
         </p>
     </div>
 </section>
@@ -41,6 +41,9 @@
             .toString()
             .padStart(2, "0");
         document.getElementById("minutos").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+        document.getElementById("segundos").textContent = seconds
             .toString()
             .padStart(2, "0");
     }
