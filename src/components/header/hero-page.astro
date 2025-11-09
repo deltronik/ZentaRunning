@@ -1,0 +1,106 @@
+---
+
+---
+
+<section class="hero">
+    <div class="ruta">
+        <h1>Zenta <span>Running</span></h1>
+        <img src="/img/new-logo-white.png" alt="Zenta Running Logo" />
+    </div>
+    <div class="flotante" id="contador">
+        <p>La proxima carreara arranca en:</p>
+        <p>
+            <span id="dias">00</span> Dias, <span id="horas">00</span> Horas, <span
+                id="minutos">00</span
+            > y Minutos
+        </p>
+    </div>
+</section>
+<script>
+    const targetDate = new Date("2026-04-10T00:00:00").getTime();
+
+    function actualizarContador() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+            document.getElementById("contador").innerHTML = "¡A CORRER!";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("dias").textContent = days
+            .toString()
+            .padStart(2, "0");
+        document.getElementById("horas").textContent = hours
+            .toString()
+            .padStart(2, "0");
+        document.getElementById("minutos").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+    }
+
+    actualizarContador();
+    setInterval(actualizarContador, 60000); // Actualiza cada minuto
+</script>
+<style>
+    .hero {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        background-color: #1c1c1c;
+        position: relative;
+        .ruta {
+            background-image: url(whiteLine1.png);
+            background-size: 110% 100%;
+            height: 10rem;
+            width: 95%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: end;
+            h1 {
+                width: 30%;
+                height: 80%;
+                color: #1c1c1c;
+                font-size: 2rem;
+                font-family: "Gantari";
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                margin-inline-end: 5px;
+                span {
+                    color: #96cc23;
+                }
+            }
+            img {
+                height: 65%;
+                margin-inline-end: 10px;
+                padding-block-end: 16px;
+            }
+        }
+        .flotante {
+            position: absolute;
+            bottom: 20px;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            p {
+                font-size: 2rem;
+                color: white;
+                margin-inline: auto;
+                font-family: "Caveat";
+                span {
+                    color: #96cc23;
+                }
+            }
+        }
+    }
+</style>

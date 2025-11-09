@@ -5,11 +5,12 @@ import Nav from "./header/nav.astro";
 <header>
     <section class="nav-bar">
         <div class="logo">
-            <img src="/newlogo.png" alt="Zenta running club logo" />
+            <img src="/newlogo2.png" alt="Zenta running club logo" />
             <h2>Zenta Running</h2>
         </div>
         <Nav />
     </section>
+    <slot />
 </header>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
@@ -32,9 +33,10 @@ import Nav from "./header/nav.astro";
             align-items: center;
             justify-content: center;
             img {
-                height: 5rem;
+                height: 4rem;
+                width: 4rem;
+                padding-block-end: 10px;
                 margin-inline-start: 2px;
-                border-radius: 100%;
             }
             h2 {
                 color: light-dark(#8ac355, #000);

@@ -1,0 +1,417 @@
+---
+const { isIndex } = Astro.props;
+import Hero from "./hero-page.astro";
+---
+
+<header class="header-page">
+    <section class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo">
+                <img
+                    src="/img/new-logo.png"
+                    alt="Zenta Running logo, una R incrustada dentro de una Z"
+                />
+            </a>
+            <h3 class="name-site">
+                <a href="/">
+                    <span class="Zenta">Zenta</span>
+                    <span class="Running">Running</span>
+                </a>
+            </h3>
+        </div>
+
+        <div class="nav-right">
+            <div class="nav-movil">
+                <button id="menu-toggle" aria-label="Abrir menú">
+                    <span class="icon-open">☰</span>
+                    <span class="icon-close">✕</span>
+                </button>
+
+                <nav id="menu-panel">
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/carrera">Nosotros</a></li>
+                        <li><a href="/article">Productos</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-desktop">
+                <nav>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/carrera">Nosotros</a></li>
+                        <li><a href="/article">Productos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    {isIndex ? <Hero /> : <h1>Hola</h1>}
+
+    <!-- ✅ Script con manejo seguro -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuSection = document.querySelector(".nav-movil");
+            const toggleBtn = document.getElementById("menu-toggle");
+            const panel = document.getElementById("menu-panel");
+
+            if (menuSection && toggleBtn && panel) {
+                toggleBtn.addEventListener("click", () => {
+                    menuSection.classList.toggle("active");
+                });
+
+                // 🔽 Cerrar al hacer clic fuera del panel
+                document.addEventListener("click", (e) => {
+                    const isClickInside =
+                        menuSection.contains(e.target) ||
+                        toggleBtn.contains(e.target);
+
+                    // Si el menú está activo y se clickea fuera, se cierra
+                    if (
+                        !isClickInside &&
+                        menuSection.classList.contains("active")
+                    ) {
+                        if (menuSection.classList.contains("active")) {
+                            menuSection.classList.remove("active");
+                        }
+                    }
+                });
+            }
+            document.querySelectorAll("#menu-panel a").forEach((link) => {
+                link.addEventListener("click", () =>
+                    menuSection.classList.remove("active"),
+                );
+            });
+        });
+    </script>
+
+    <style>
+        @media (max-width: 320px) {
+            .header-page {
+                height: 30rem;
+                display: flex;
+                flex-direction: column;
+
+                .navbar {
+                    background-color: #000;
+                    display: flex;
+                    flex-direction: row;
+                    height: 5rem;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .nav-left {
+                        margin-inline-start: 5px;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        .logo img {
+                            height: 4rem;
+                            display: none;
+                        }
+
+                        .name-site {
+                            font-family: "Gantari";
+                            font-weight: 800;
+                            font-size: 2.5rem;
+                            display: flex;
+
+                            .Zenta {
+                                color: white;
+                            }
+
+                            .Running {
+                                color: #96cc23;
+                            }
+                        }
+                    }
+
+                    .nav-right {
+                        display: flex;
+                        align-items: center;
+                        margin-inline-end: 5px;
+                        .nav-desktop {
+                            display: none;
+                        }
+                        .nav-movil {
+                            position: relative;
+                            z-index: 100;
+
+                            #menu-toggle {
+                                background: none;
+                                border: none;
+                                font-size: 2rem;
+                                cursor: pointer;
+                                z-index: 200;
+                                position: relative;
+
+                                .icon-close {
+                                    display: none;
+                                    color: white;
+                                }
+
+                                .icon-open {
+                                    color: white;
+                                }
+                            }
+
+                            #menu-panel {
+                                position: fixed;
+                                top: 0;
+                                right: -100%;
+                                width: 80%;
+                                height: 100dvh;
+                                background-color: #1c1c1cee;
+                                transition: right 0.3s ease;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                ul {
+                                    list-style: none;
+                                    padding: 0;
+                                    margin: 0;
+                                    text-align: center;
+
+                                    li {
+                                        margin: 1.5rem 0;
+
+                                        a {
+                                            color: #fff;
+                                            font-size: 1.5rem;
+                                            transition: color 0.2s ease;
+
+                                            &:hover {
+                                                color: #f0a500;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.active {
+                                #menu-panel {
+                                    right: 0;
+                                    transition: right 0.3s ease;
+                                }
+
+                                .icon-open {
+                                    display: none;
+                                }
+
+                                .icon-close {
+                                    display: inline !important;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media (min-width: 321px) and (max-width: 719px) {
+            .header-page {
+                height: 40rem;
+                display: flex;
+                flex-direction: column;
+
+                .navbar {
+                    background-color: #000;
+                    display: flex;
+                    flex-direction: row;
+                    height: 7rem;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .nav-left {
+                        margin-inline-start: 10px;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        .logo img {
+                            height: 3.5rem;
+                            padding-block-end: 2px;
+                            margin-inline-end: 5px;
+                        }
+
+                        .name-site {
+                            font-family: "Gantari";
+                            font-weight: 800;
+                            font-size: 3rem;
+                            display: flex;
+
+                            .Zenta {
+                                color: white;
+                            }
+
+                            .Running {
+                                color: #96cc23;
+                            }
+                        }
+                    }
+
+                    .nav-right {
+                        display: flex;
+                        align-items: center;
+                        margin-inline-end: 10px;
+                        .nav-desktop {
+                            display: none;
+                        }
+                        .nav-movil {
+                            position: relative;
+                            z-index: 100;
+
+                            #menu-toggle {
+                                background: none;
+                                border: none;
+                                font-size: 3rem;
+                                cursor: pointer;
+                                z-index: 200;
+                                position: relative;
+
+                                .icon-close {
+                                    display: none;
+                                }
+
+                                .icon-open {
+                                    color: white;
+                                }
+                            }
+
+                            #menu-panel {
+                                position: fixed;
+                                top: 0;
+                                right: -100%;
+                                width: 50%;
+                                height: 100dvh;
+                                background-color: #1c1c1cee;
+                                transition: right 0.3s ease;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                ul {
+                                    list-style: none;
+                                    padding: 0;
+                                    margin: 0;
+                                    text-align: center;
+
+                                    li {
+                                        margin: 1.5rem 0;
+
+                                        a {
+                                            color: #fff;
+                                            font-size: 3rem;
+                                            font-family: "Caveat";
+                                            color: #96cc23;
+                                            transition: color 0.2s ease;
+
+                                            &:hover {
+                                                color: #f0a500;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.active {
+                                #menu-panel {
+                                    right: 0;
+                                    transition: right 0.3s ease;
+                                }
+
+                                .icon-open {
+                                    display: none;
+                                }
+
+                                .icon-close {
+                                    display: inline !important;
+                                    color: red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media (min-width: 720px) {
+            .header-page {
+                height: 40rem;
+                display: flex;
+                flex-direction: column;
+
+                .navbar {
+                    background-color: #000;
+                    display: flex;
+                    flex-direction: row;
+                    height: 7rem;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .nav-left {
+                        margin-inline-start: 10px;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        .logo img {
+                            height: 3.5rem;
+                            padding-block-end: 2px;
+                            margin-inline-end: 5px;
+                        }
+
+                        .name-site {
+                            font-family: "Gantari";
+                            font-weight: 800;
+                            font-size: 3rem;
+                            display: flex;
+
+                            .Zenta {
+                                color: white;
+                            }
+
+                            .Running {
+                                color: #96cc23;
+                            }
+                        }
+                    }
+
+                    .nav-right {
+                        display: flex;
+                        align-items: center;
+                        margin-inline-end: 10px;
+
+                        .nav-movil {
+                            display: none;
+                        }
+                        .nav-desktop {
+                            ul {
+                                display: flex;
+                                color: white;
+                                align-items: center;
+                                li {
+                                    margin-inline: 10px;
+                                    a {
+                                        font-family: "Caveat";
+                                        font-size: 2.5rem;
+                                        font-weight: 600;
+                                    }
+                                    &:hover {
+                                        color: #96cc23;
+                                        font-size: 3rem;
+                                        padding-block-end: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </style>
+</header>

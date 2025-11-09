@@ -1,0 +1,20 @@
+---
+import Head from "../components/head/head-page.astro";
+import Header from "../components/header/header-page.astro";
+import "./../css/resetCSS.css";
+const { Title, isIndex } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <Head />
+        <title>{Title}</title>
+    </head>
+    <body>
+        <Header isIndex={isIndex} />
+        <slot />
+    </body>
+</html>
