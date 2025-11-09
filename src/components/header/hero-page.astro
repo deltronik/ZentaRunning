@@ -12,7 +12,7 @@
         <p>
             <span id="dias">00</span> Dias, <span id="horas">00</span> Horas, <span
                 id="minutos">00</span
-            >Minutos y <span id="segundos">00</span>
+            > Minutos y <span id="segundos">00</span> Segundos
         </p>
     </div>
 </section>
@@ -24,7 +24,7 @@
         const diff = targetDate - now;
 
         if (diff <= 0) {
-            document.getElementById("contador").innerHTML = "¡A CORRER!";
+            document.getElementById("contador").textContent = "¡Finalizado!";
             return;
         }
 
@@ -33,6 +33,7 @@
             (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
         );
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
         document.getElementById("dias").textContent = days
             .toString()
@@ -49,7 +50,7 @@
     }
 
     actualizarContador();
-    setInterval(actualizarContador, 60000); // Actualiza cada minuto
+    setInterval(actualizarContador, 1000); // Actualiza cada segundo
 </script>
 <style>
     .hero {
