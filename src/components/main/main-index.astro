@@ -1,0 +1,619 @@
+<main class="main-index">
+    <h3 class="next-events">Eventos</h3>
+    <section class="event">
+        <a href="#">
+            <h2 class="title-event">
+                <span class="title-sup">Zenta Run:</span>
+                <span class="title-inf">10K Performance City</span>
+            </h2>
+        </a>
+        <div class="flex-1">
+            <div class="info-event">
+                <a href="#">
+                    <div class="content">
+                        <h3>Información</h3>
+                    </div>
+                    <div class="img img-info"></div>
+                </a>
+            </div>
+
+            <div class="info-event">
+                <a href="#">
+                    <div class="content">
+                        <h3>Información corredores</h3>
+                    </div>
+                    <div class="img img-rule"></div>
+                </a>
+            </div>
+        </div>
+        <div class="flex-2">
+            <div class="info-event">
+                <a href="#">
+                    <div class="content">
+                        <h3>Ver recorrido</h3>
+                    </div>
+                    <div class="img img-map"></div>
+                </a>
+            </div>
+        </div>
+        <div class="flex-2">
+            <div class="info-event">
+                <a href="#">
+                    <div class="content">
+                        <h3>Participar</h3>
+                    </div>
+                    <div class="img img-register"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<style>
+    @media (max-width: 320px) {
+        .main-index {
+            color-scheme: light dark;
+            background: linear-gradient(
+                to bottom,
+                light-dark(#1c1c1c, #1c1c1c),
+                light-dark(#d8d8d7, #181f17)
+            );
+            min-height: 40dvh;
+            padding-block-start: 4rem;
+            .event {
+                width: 90%;
+                margin-inline: auto;
+                margin-block-end: 2rem;
+                border-radius: 5px;
+                background-color: light-dark(#fff, #181f17);
+                text-align: start;
+                display: flex;
+                flex-direction: column;
+                .title-event {
+                    color: light-dark(#1c1c1c, #fff);
+                    font-size: 2rem;
+                    margin-block: 1rem;
+                    margin-inline: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: "Gantari";
+                    .title-inf {
+                        color: light-dark(#96cc23, forestgreen);
+                    }
+                }
+                .info-event {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: light-dark(#fff, #181f17);
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    box-shadow: 0 4px 12px
+                        light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+                    border: light-dark(
+                        1px solid rgba(0, 0, 0, 0.05),
+                        1px solid rgba(255, 255, 255, 0.1)
+                    );
+                    max-width: 90%;
+                    margin-inline: auto;
+                    margin-block-end: 1.5rem;
+                    position: relative;
+                    a {
+                        display: flex;
+                    }
+                    .img-info {
+                        background: url("/img/rules.png") center/cover no-repeat;
+                    }
+                    .img-rule {
+                        background: url("/img/page.png") center/cover no-repeat;
+                    }
+                    .img-map {
+                        background: url("/img/maps.png") center/cover no-repeat;
+                    }
+                    .img-register {
+                        background: url("/img/info.png") center/cover no-repeat;
+                    }
+                    .img {
+                        flex: 1.2;
+                        width: 8rem; /* tamaño fijo de ancho */
+                        aspect-ratio: 4 / 4; /* mantiene proporción estable */
+                        height: auto; /* se adapta al aspect-ratio */
+                        min-width: 8rem;
+                        max-width: 8rem;
+                        position: relative;
+                        border-end-end-radius: 1rem;
+                        border-start-end-radius: 1rem;
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    .img::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(
+                            to right,
+                            light-dark(#ffffff, #181f17) 0%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.9),
+                                    rgba(24, 31, 23, 0.9)
+                                )
+                                20%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.6),
+                                    rgba(24, 31, 23, 0.6)
+                                )
+                                40%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.2),
+                                    rgba(24, 31, 23, 0.2)
+                                )
+                                60%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0),
+                                    rgba(24, 31, 23, 0)
+                                )
+                                80%
+                        );
+                    }
+                    .content {
+                        flex: 1;
+                        padding: 3rem;
+                        color: #000;
+                        font-family: "Gantari", sans-serif;
+                        position: relative;
+                        z-index: 2;
+                        h3 {
+                            color: light-dark(#1c1c1c, #fff);
+                            font-size: 1.8rem;
+                            font-weight: 800;
+                        }
+                    }
+                }
+                .info-event::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+                    opacity: 0.15;
+                    pointer-events: none;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    @media (max-width: 460px) {
+        .main-index {
+            color-scheme: light dark;
+            background: linear-gradient(
+                to bottom,
+                light-dark(#1c1c1c, #1c1c1c),
+                light-dark(#d8d8d7, #181f17)
+            );
+            min-height: 40dvh;
+            padding-block-start: 4rem;
+            .event {
+                width: 90dvw;
+                margin-inline: auto;
+                margin-block-end: 2rem;
+                border-radius: 5px;
+                background-color: light-dark(#fff, #181f17);
+                text-align: start;
+                display: flex;
+                flex-direction: column;
+                .title-event {
+                    color: light-dark(#1c1c1c, #fff);
+                    font-size: 2.2rem;
+                    margin-block-start: 1rem;
+                    margin-block-end: 3rem;
+                    margin-inline: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: "Gantari";
+                    .title-inf {
+                        color: light-dark(#96cc23, forestgreen);
+                    }
+                }
+                .info-event {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: light-dark(#fff, #181f17);
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    box-shadow: 0 4px 12px
+                        light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+                    border: light-dark(
+                        1px solid rgba(0, 0, 0, 0.05),
+                        1px solid rgba(255, 255, 255, 0.1)
+                    );
+                    width: 80dvw;
+                    height: auto;
+                    margin-inline: auto;
+                    margin-block-end: 1.5rem;
+                    position: relative;
+                    a {
+                        display: flex;
+                    }
+                    .img-info {
+                        background: url("/img/rules.png") center/cover no-repeat;
+                    }
+                    .img-rule {
+                        background: url("/img/page.png") center/cover no-repeat;
+                    }
+                    .img-map {
+                        background: url("/img/maps.png") center/cover no-repeat;
+                    }
+                    .img-register {
+                        background: url("/img/info.png") center/cover no-repeat;
+                    }
+                    .img {
+                        width: 25dvw;
+                        aspect-ratio: 4 / 3; /* mantiene proporción estable */
+                        height: auto; /* se adapta al aspect-ratio */
+                        position: relative;
+                        border-end-end-radius: 1rem;
+                        border-start-end-radius: 1rem;
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    .img::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(
+                            to right,
+                            light-dark(#ffffff, #181f17) 0%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.9),
+                                    rgba(24, 31, 23, 0.9)
+                                )
+                                20%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.6),
+                                    rgba(24, 31, 23, 0.6)
+                                )
+                                40%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.2),
+                                    rgba(24, 31, 23, 0.2)
+                                )
+                                60%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0),
+                                    rgba(24, 31, 23, 0)
+                                )
+                                80%
+                        );
+                    }
+                    .content {
+                        display: flex;
+                        align-items: center;
+                        height: auto;
+                        width: 55dvw;
+                        font-family: "Gantari", sans-serif;
+                        position: relative;
+                        z-index: 2;
+                        h3 {
+                            color: light-dark(#1c1c1c, #fff);
+                            font-size: 1.8rem;
+                            font-weight: 800;
+                            margin-inline: 10px;
+                            width: 100%;
+                            height: 100%;
+                            align-content: center;
+                        }
+                    }
+                }
+                .info-event::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+                    opacity: 0.15;
+                    pointer-events: none;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 720px) {
+        .main-index {
+            color-scheme: light dark;
+            background: linear-gradient(
+                to bottom,
+                light-dark(#1c1c1c, #1c1c1c),
+                light-dark(#d8d8d7, #181f17)
+            );
+            min-height: 40dvh;
+            padding-block-start: 4rem;
+            .event {
+                width: 90dvw;
+                margin-inline: auto;
+                margin-block-end: 2rem;
+                border-radius: 5px;
+                background-color: light-dark(#fff, #181f17);
+                text-align: start;
+                display: flex;
+                flex-direction: column;
+                .title-event {
+                    color: light-dark(#1c1c1c, #fff);
+                    font-size: 2.2rem;
+                    margin-block-start: 1rem;
+                    margin-block-end: 3rem;
+                    margin-inline: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: "Gantari";
+                    .title-inf {
+                        color: light-dark(#96cc23, forestgreen);
+                    }
+                }
+                .info-event {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: light-dark(#fff, #181f17);
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    box-shadow: 0 4px 12px
+                        light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+                    border: light-dark(
+                        1px solid rgba(0, 0, 0, 0.05),
+                        1px solid rgba(255, 255, 255, 0.1)
+                    );
+                    width: 80dvw;
+                    height: auto;
+                    margin-inline: auto;
+                    margin-block-end: 1.5rem;
+                    position: relative;
+                    a {
+                        display: flex;
+                    }
+                    .img-info {
+                        background: url("/img/rules.png") center/cover no-repeat;
+                    }
+                    .img-rule {
+                        background: url("/img/page.png") center/cover no-repeat;
+                    }
+                    .img-map {
+                        background: url("/img/maps.png") center/cover no-repeat;
+                    }
+                    .img-register {
+                        background: url("/img/info.png") center/cover no-repeat;
+                    }
+                    .img {
+                        width: 25dvw;
+                        aspect-ratio: 4 / 3; /* mantiene proporción estable */
+                        height: auto; /* se adapta al aspect-ratio */
+                        position: relative;
+                        border-end-end-radius: 1rem;
+                        border-start-end-radius: 1rem;
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    .img::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(
+                            to right,
+                            light-dark(#ffffff, #181f17) 0%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.9),
+                                    rgba(24, 31, 23, 0.9)
+                                )
+                                20%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.6),
+                                    rgba(24, 31, 23, 0.6)
+                                )
+                                40%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.2),
+                                    rgba(24, 31, 23, 0.2)
+                                )
+                                60%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0),
+                                    rgba(24, 31, 23, 0)
+                                )
+                                80%
+                        );
+                    }
+                    .content {
+                        display: flex;
+                        align-items: center;
+                        height: auto;
+                        width: 55dvw;
+                        font-family: "Gantari", sans-serif;
+                        position: relative;
+                        z-index: 2;
+                        h3 {
+                            color: light-dark(#1c1c1c, #fff);
+                            font-size: 1.8rem;
+                            font-weight: 800;
+                            margin-inline: 10px;
+                            width: 100%;
+                            height: 100%;
+                            align-content: center;
+                        }
+                    }
+                }
+                .info-event::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+                    opacity: 0.15;
+                    pointer-events: none;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    @media (min-width: 721px) {
+        .main-index {
+            color-scheme: light dark;
+            background: linear-gradient(
+                to bottom,
+                light-dark(#1c1c1c, #1c1c1c),
+                light-dark(#d8d8d7, #181f17)
+            );
+            min-height: 40dvh;
+            padding-block-start: 4rem;
+            .event {
+                width: 70dvw;
+                margin-inline: auto;
+                margin-block-end: 2rem;
+                border-radius: 5px;
+                background-color: light-dark(#fff, #181f17);
+                text-align: start;
+                display: flex;
+                flex-direction: column;
+                .title-event {
+                    color: light-dark(#1c1c1c, #fff);
+                    font-size: 2.2rem;
+                    margin-block-start: 1rem;
+                    margin-block-end: 3rem;
+                    margin-inline: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: "Gantari";
+                    .title-inf {
+                        color: light-dark(#96cc23, forestgreen);
+                    }
+                }
+                .info-event {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: light-dark(#fff, #181f17);
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    box-shadow: 0 4px 12px
+                        light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+                    border: light-dark(
+                        1px solid rgba(0, 0, 0, 0.05),
+                        1px solid rgba(255, 255, 255, 0.1)
+                    );
+                    width: 60dvw;
+                    height: auto;
+                    margin-inline: auto;
+                    margin-block-end: 1.5rem;
+                    position: relative;
+                    a {
+                        display: flex;
+                    }
+                    .img-info {
+                        background: url("/img/rules.png") center/cover no-repeat;
+                    }
+                    .img-rule {
+                        background: url("/img/page.png") center/cover no-repeat;
+                    }
+                    .img-map {
+                        background: url("/img/maps.png") center/cover no-repeat;
+                    }
+                    .img-register {
+                        background: url("/img/info.png") center/cover no-repeat;
+                    }
+                    .img {
+                        width: 20dvw;
+                        aspect-ratio: 4 / 3; /* mantiene proporción estable */
+                        height: auto; /* se adapta al aspect-ratio */
+                        position: relative;
+                        border-end-end-radius: 1rem;
+                        border-start-end-radius: 1rem;
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    .img::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(
+                            to right,
+                            light-dark(#ffffff, #181f17) 0%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.9),
+                                    rgba(24, 31, 23, 0.9)
+                                )
+                                20%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.6),
+                                    rgba(24, 31, 23, 0.6)
+                                )
+                                40%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0.2),
+                                    rgba(24, 31, 23, 0.2)
+                                )
+                                60%,
+                            light-dark(
+                                    rgba(255, 255, 255, 0),
+                                    rgba(24, 31, 23, 0)
+                                )
+                                80%
+                        );
+                    }
+                    .content {
+                        display: flex;
+                        align-items: center;
+                        height: auto;
+                        width: 55dvw;
+                        font-family: "Gantari", sans-serif;
+                        position: relative;
+                        z-index: 2;
+                        h3 {
+                            color: light-dark(#1c1c1c, #fff);
+                            font-size: 1.8rem;
+                            font-weight: 800;
+                            margin-inline: 10px;
+                            width: 100%;
+                            height: 100%;
+                            align-content: center;
+                        }
+                    }
+                }
+                .info-event::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+                    opacity: 0.15;
+                    pointer-events: none;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    .next-events {
+        color: light-dark(forestgreen, #96cc23);
+        margin-block-start: 3rem;
+        margin-block-end: 4rem;
+        font-size: 2rem;
+        font-family: "notable";
+        width: min-content;
+        margin-inline: auto;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+</style>

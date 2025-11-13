@@ -1,49 +1,8 @@
 ---
 import Base from "./../layouts/Layout.astro";
+import Main from "./../components/main/main-index.astro";
 ---
 
 <Base Title="Zenta Running" isIndex={true}>
-    <main class="main-index">
-        <section class="event">
-            <a href="#">
-                <h2 class="title-event">
-                    <span class="title-sup">Zenta Run:</span>
-                    <span class="title-inf">10K Performance City</span>
-                </h2>
-            </a>
-        </section>
-    </main>
-    <style>
-        .main-index {
-            color-scheme: light dark;
-            background: linear-gradient(
-                to bottom,
-                light-dark(#1c1c1c, #1c1c1c),
-                light-dark(#d8d8d7, #181f17)
-            );
-            min-height: 40dvh;
-            padding-block-start: 4rem;
-            .event {
-                width: 90%;
-                margin-inline: auto;
-                border-radius: 5px;
-                background-color: light-dark(#fff, #181f17);
-                text-align: start;
-                display: flex;
-                flex-direction: column;
-                .title-event {
-                    color: light-dark(#1c1c1c, #fff);
-                    font-size: 2rem;
-                    margin-block: 1rem;
-                    margin-inline: 5px;
-                    display: flex;
-                    flex-direction: column;
-                    font-family: "Gantari";
-                    .title-inf {
-                        color: light-dark(#96cc23, forestgreen);
-                    }
-                }
-            }
-        }
-    </style>
+    <Main />
 </Base>
