@@ -47,6 +47,53 @@
             </div>
         </div>
     </section>
+    <section class="event">
+        <a href="#">
+            <h2 class="title-event">
+                <span class="title-sup">Participativa:</span>
+                <span class="title-inf">3K easy run</span>
+            </h2>
+        </a>
+        <div class="flex-1">
+            <div class="info-event">
+                <a href="#">
+                    <div class="content">
+                        <h3>Información</h3>
+                    </div>
+                    <div class="img img-info"></div>
+                </a>
+            </div>
+
+            <div class="info-event">
+                <a href="#">
+                    <div class="content">
+                        <h3>Información corredores</h3>
+                    </div>
+                    <div class="img img-rule"></div>
+                </a>
+            </div>
+        </div>
+        <div class="flex-2">
+            <div class="info-event">
+                <a href="#">
+                    <div class="content">
+                        <h3>Ver recorrido</h3>
+                    </div>
+                    <div class="img img-map"></div>
+                </a>
+            </div>
+        </div>
+        <div class="flex-2">
+            <div class="info-event">
+                <a href="#">
+                    <div class="content">
+                        <h3>Participar</h3>
+                    </div>
+                    <div class="img img-register"></div>
+                </a>
+            </div>
+        </div>
+    </section>
 </main>
 
 <style>
@@ -389,7 +436,11 @@
                     .img-map {
                         background: url("/img/maps.png") center/cover no-repeat;
                     }
-                    .img-register {
+                    .img-register
+                    .event {
+                        padding-block-end: 1rem;
+                        margin-block-end: 4rem;
+                    }{
                         background: url("/img/info.png") center/cover no-repeat;
                     }
                     .img {
@@ -477,14 +528,15 @@
             min-height: 40dvh;
             padding-block-start: 4rem;
             .event {
-                width: 70dvw;
+                width: 75dvw;
                 margin-inline: auto;
                 margin-block-end: 2rem;
-                border-radius: 5px;
+                border-radius: 1rem;
                 background-color: light-dark(#fff, #181f17);
                 text-align: start;
                 display: flex;
                 flex-direction: column;
+
                 .title-event {
                     color: light-dark(#1c1c1c, #fff);
                     font-size: 2.2rem;
@@ -498,113 +550,216 @@
                         color: light-dark(#96cc23, forestgreen);
                     }
                 }
-                .info-event {
+                .flex-1 {
                     display: flex;
-                    flex-wrap: wrap;
-                    align-items: center;
-                    justify-content: space-between;
-                    background: light-dark(#fff, #181f17);
-                    border-radius: 1rem;
-                    overflow: hidden;
-                    box-shadow: 0 4px 12px
-                        light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
-                    border: light-dark(
-                        1px solid rgba(0, 0, 0, 0.05),
-                        1px solid rgba(255, 255, 255, 0.1)
-                    );
-                    width: 60dvw;
-                    height: auto;
-                    margin-inline: auto;
-                    margin-block-end: 1.5rem;
-                    position: relative;
-                    a {
-                        display: flex;
-                    }
-                    .img-info {
-                        background: url("/img/rules.png") center/cover no-repeat;
-                    }
-                    .img-rule {
-                        background: url("/img/page.png") center/cover no-repeat;
-                    }
-                    .img-map {
-                        background: url("/img/maps.png") center/cover no-repeat;
-                    }
-                    .img-register {
-                        background: url("/img/info.png") center/cover no-repeat;
-                    }
-                    .img {
-                        width: 20dvw;
-                        aspect-ratio: 4 / 3; /* mantiene proporción estable */
-                        height: auto; /* se adapta al aspect-ratio */
-                        position: relative;
-                        border-end-end-radius: 1rem;
-                        border-start-end-radius: 1rem;
-                        background-position: center;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                    }
-                    .img::before {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(
-                            to right,
-                            light-dark(#ffffff, #181f17) 0%,
-                            light-dark(
-                                    rgba(255, 255, 255, 0.9),
-                                    rgba(24, 31, 23, 0.9)
-                                )
-                                20%,
-                            light-dark(
-                                    rgba(255, 255, 255, 0.6),
-                                    rgba(24, 31, 23, 0.6)
-                                )
-                                40%,
-                            light-dark(
-                                    rgba(255, 255, 255, 0.2),
-                                    rgba(24, 31, 23, 0.2)
-                                )
-                                60%,
-                            light-dark(
-                                    rgba(255, 255, 255, 0),
-                                    rgba(24, 31, 23, 0)
-                                )
-                                80%
+                    flex-direction: row;
+                    width: 75dvw;
+                    margin-block-end: 2rem;
+                    .info-event {
+                        display: inline;
+                        margin-inline: auto;
+                        border-left: light-dark(
+                            1px solid rgba(0, 0, 0, 0.05),
+                            1px solid rgba(255, 255, 255, 0.1)
                         );
-                    }
-                    .content {
-                        display: flex;
-                        align-items: center;
-                        height: auto;
-                        width: 55dvw;
-                        font-family: "Gantari", sans-serif;
+                        border-radius: 1rem;
+                        width: 35dvw;
+                        height: 8rem;
                         position: relative;
-                        z-index: 2;
-                        h3 {
-                            color: light-dark(#1c1c1c, #fff);
-                            font-size: 1.8rem;
-                            font-weight: 800;
-                            margin-inline: 10px;
+                        box-shadow: 0 4px 12px
+                            light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+                        a {
+                            display: flex;
+                        }
+                        .img-info {
+                            background: url("/img/rules.png") center/cover
+                                no-repeat;
+                        }
+                        .img-rule {
+                            background: url("/img/page.png") center/cover
+                                no-repeat;
+                        }
+                        .img {
+                            width: 10dvw;
+                            height: 8rem;
+                            aspect-ratio: 4 / 3;
+                            position: relative;
+                            border-end-end-radius: 1rem;
+                            border-start-end-radius: 1rem;
+                            background-position: center;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                        .img::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
                             width: 100%;
                             height: 100%;
-                            align-content: center;
+                            background: linear-gradient(
+                                to right,
+                                light-dark(#ffffff, #181f17) 0%,
+                                light-dark(
+                                        rgba(255, 255, 255, 0.9),
+                                        rgba(24, 31, 23, 0.9)
+                                    )
+                                    20%,
+                                light-dark(
+                                        rgba(255, 255, 255, 0.6),
+                                        rgba(24, 31, 23, 0.6)
+                                    )
+                                    40%,
+                                light-dark(
+                                        rgba(255, 255, 255, 0.2),
+                                        rgba(24, 31, 23, 0.2)
+                                    )
+                                    60%,
+                                light-dark(
+                                        rgba(255, 255, 255, 0),
+                                        rgba(24, 31, 23, 0)
+                                    )
+                                    80%
+                            );
+                        }
+                        .content {
+                            display: flex;
+                            align-items: center;
+                            height: auto;
+                            width: 30dvw;
+                            font-family: "Gantari", sans-serif;
+                            position: relative;
+                            z-index: 2;
+                            h3 {
+                                color: light-dark(#1c1c1c, #fff);
+                                font-size: 1.8rem;
+                                font-weight: 800;
+                                margin-inline: 10px;
+                                width: 100%;
+                                height: 100%;
+                                align-content: center;
+                            }
                         }
                     }
+                    .info-event::after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+                        opacity: 0.15;
+                        pointer-events: none;
+                        z-index: 1;
+                    }
                 }
-                .info-event::after {
-                    content: "";
-                    position: absolute;
-                    inset: 0;
-                    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
-                    opacity: 0.15;
-                    pointer-events: none;
-                    z-index: 1;
+                /*Aqui va flex 2*/
+                .flex-2 {
+                    width: 75dvw;
+                    .info-event {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        background: light-dark(#fff, #181f17);
+                        border-radius: 1rem;
+                        overflow: hidden;
+                        box-shadow: 0 4px 12px
+                            light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+                        border: light-dark(
+                            1px solid rgba(0, 0, 0, 0.05),
+                            1px solid rgba(255, 255, 255, 0.1)
+                        );
+                        width: 72.5dvw;
+                        height: 8rem;
+                        margin-inline: auto;
+                        margin-block: 0.75rem;
+                        position: relative;
+                        a {
+                            display: flex;
+                        }
+                        .img-map {
+                            background: url("/img/maps.png") center/cover
+                                no-repeat;
+                        }
+                        .img-register {
+                            background: url("/img/info.png") center/cover
+                                no-repeat;
+                        }
+                        .img {
+                            width: 30dvw;
+                            aspect-ratio: 4 / 3; /* mantiene proporción estable */
+                            height: auto; /* se adapta al aspect-ratio */
+                            position: relative;
+                            border-end-end-radius: 1rem;
+                            border-start-end-radius: 1rem;
+                            background-position: center;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                        .img::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(
+                                to right,
+                                light-dark(#ffffff, #181f17) 0%,
+                                light-dark(
+                                        rgba(255, 255, 255, 0.9),
+                                        rgba(24, 31, 23, 0.9)
+                                    )
+                                    20%,
+                                light-dark(
+                                        rgba(255, 255, 255, 0.6),
+                                        rgba(24, 31, 23, 0.6)
+                                    )
+                                    40%,
+                                light-dark(
+                                        rgba(255, 255, 255, 0.2),
+                                        rgba(24, 31, 23, 0.2)
+                                    )
+                                    60%,
+                                light-dark(
+                                        rgba(255, 255, 255, 0),
+                                        rgba(24, 31, 23, 0)
+                                    )
+                                    80%
+                            );
+                        }
+                        .content {
+                            display: flex;
+                            align-items: center;
+                            height: auto;
+                            width: 42.5dvw;
+                            font-family: "Gantari", sans-serif;
+                            position: relative;
+                            z-index: 2;
+                            h3 {
+                                color: light-dark(#1c1c1c, #fff);
+                                font-size: 1.8rem;
+                                font-weight: 800;
+                                margin-inline: 10px;
+                                width: 100%;
+                                height: auto;
+                                align-content: center;
+                            }
+                        }
+                    }
+                    .info-event::after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+                        opacity: 0.15;
+                        pointer-events: none;
+                        z-index: 1;
+                    }
                 }
             }
         }
+    }
+    main{
+        padding-block-end:2rem;
     }
     .next-events {
         color: light-dark(forestgreen, #96cc23);
