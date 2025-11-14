@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/Base.astro";
+---
+
+<BaseLayout>
+    <div class="franja-contenedor"></div>
+</BaseLayout>
+<style>
+    /* Estilo del contenedor para simular el fondo negro y posicionar la franja y el texto */
+    .franja-contenedor {
+        background-color: black; /* Color de fondo */
+        width: 100%;
+        height: 100px; /* Altura de la franja (ajustable) */
+        position: relative; /* Esencial para posicionar el texto dentro */
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Opcional: centrar el texto verticalmente */
+    }
+
+    /* El elemento que contendrá el efecto de la línea blanca */
+    .franja-blanca {
+        width: 90%; /* Ancho de la franja, ajustable */
+        height: 30px; /* Altura de la línea blanca */
+        position: absolute; /* Para que el texto se pueda superponer */
+        left: 5%; /* Centrar la franja o empezar desde la izquierda */
+
+        /* 🔥 EL SECRETO DEL EFECTO DEGRADADO */
+        background: linear-gradient(
+            to right,
+            white 0%,
+            /* Comienza en blanco sólido (0% de ancho) */ white 40%,
+            /* Blanco sólido hasta el 40% del ancho */ rgba(255, 255, 255, 0.1)
+                80%,
+            /* Empieza a ser transparente gradualmente */ rgba(255, 255, 255, 0)
+                100% /* Totalmente transparente al 100% del ancho */
+        );
+    }
+
+    /* Estilo para la palabra dentro de la franja */
+    .texto-dentro-franja {
+        color: black; /* El texto debe ser de un color que contraste con el blanco de la franja */
+        font-size: 24px;
+        font-weight: bold;
+        position: relative; /* Asegura que el texto esté sobre la franja */
+        z-index: 10; /* Asegura que el texto esté por encima de la franja */
+        /* Puedes ajustar la posición del texto manualmente con top/left si es necesario */
+    }
+</style>

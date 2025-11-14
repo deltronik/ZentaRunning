@@ -1,0 +1,252 @@
+---
+// Si tu layout ya incluye el link a Font Awesome, NO hace falta repetirlo aquí.
+// Si no, agrega el link en tu layout <head>.
+---
+
+<!-- Agregar en el <head> de tu layout si aún no lo tenés --><!--
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  integrity="sha512-Kf4V8uGkIhYy7Hk7w2SxyZZ1GZ7d4+8kXhW+yk1yMOBm0v4uUg3gS+OD9IybapF9yDqLwpAqMo5yvW0y4f8vug=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+-->
+<section class="hero">
+    <div class="ruta">
+        <h1>Zenta <span>Running</span></h1>
+        <img src="/img/new-logo-white.png" alt="Zenta Running Logo" />
+    </div>
+
+    <div class="flotante" id="contador">
+        <p>Volvemos despues de un par de vueltas a la pista</p>
+    </div>
+</section>
+
+<style>
+    /* ===== Tu CSS en cascada (corregido y con .down-caret visible) ===== */
+
+    @media (max-width: 320px) {
+        .hero {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            background-color: #1c1c1c;
+            position: relative;
+
+            .ruta {
+                background-image: url("/whiteLine1.png");
+                background-size: 110% 100%;
+                height: 10rem;
+                width: 95%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: end;
+
+                h1 {
+                    width: 30%;
+                    height: 80%;
+                    color: #1c1c1c;
+                    font-size: 2.2rem;
+                    line-height: 0.8;
+                    font-family: "Gantari";
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: end;
+                    margin-inline-end: 5px;
+
+                    span {
+                        color: #96cc23;
+                    }
+                }
+
+                img {
+                    height: 6rem;
+                    margin-inline-end: 10px;
+                    padding-block-end: 12px;
+                }
+            } /* .ruta */
+
+            .flotante {
+                position: absolute;
+                bottom: 50px;
+                align-items: center;
+                width: 100%;
+                text-align: center;
+
+                p {
+                    font-size: 1.8rem;
+                    color: white;
+                    margin-inline: auto;
+                    font-family: "Caveat";
+
+                    span {
+                        color: #96cc23;
+                    }
+                }
+                .down-caret {
+                    display: inline-block;
+                    margin-block-start: 15px;
+                    color: #96cc23;
+                }
+            } /* .flotante */
+        } /* .hero */
+    } /* media 320 */
+
+    /* ===== media 321-719 ===== */
+    @media (min-width: 321px) and (max-width: 719px) {
+        .hero {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            background-color: #1c1c1c;
+            position: relative;
+
+            .ruta {
+                background-image: url("/whiteLine1.png");
+                background-size: 110% 100%;
+                height: 12rem;
+                width: 95%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: end;
+
+                h1 {
+                    color: #1c1c1c;
+                    font-size: 2.7rem;
+                    line-height: 0.8;
+                    font-family: "Gantari";
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: end;
+                    margin-inline-end: 5px;
+
+                    span {
+                        color: #96cc23;
+                    }
+                }
+
+                img {
+                    height: 6rem;
+                    margin-inline-end: 10px;
+                    padding-block-end: 12px;
+                }
+            }
+
+            .flotante {
+                position: absolute;
+                bottom: 50px;
+                align-items: center;
+                width: 100%;
+                text-align: center;
+
+                p {
+                    font-size: 2rem;
+                    color: white;
+                    margin-inline: auto;
+                    font-family: "Caveat";
+
+                    span {
+                        color: #96cc23;
+                    }
+                }
+
+                .down-caret {
+                    display: inline-block;
+                    color: #96cc23;
+                    margin-block-start: 15px;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    /* ===== media >=720 ===== */
+    @media (min-width: 720px) {
+        .hero {
+            height: 92dvh;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            background-color: #1c1c1c;
+            position: relative;
+
+            .ruta {
+                background-image: url("/whiteLine1.png");
+                background-size: 110% 100%;
+                height: 15rem;
+                width: 95%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: end;
+
+                h1 {
+                    width: 30%;
+                    height: auto;
+                    color: #1c1c1c;
+                    font-size: 5rem;
+                    font-family: "Gantari";
+                    line-height: 0.8;
+                    font-weight: 800;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: end;
+                    margin-inline-end: 20px;
+
+                    span {
+                        color: #96cc23;
+                    }
+                }
+
+                img {
+                    height: 65%;
+                    margin-inline-end: 4rem;
+                    padding-block-end: 16px;
+                }
+            }
+
+            .flotante {
+                position: absolute;
+                bottom: 20px;
+                align-items: center;
+                width: 100%;
+                text-align: center;
+
+                p {
+                    font-size: 2rem;
+                    font-weight: bold;
+                    color: white;
+                    margin-inline: auto;
+                    font-family: "Caveat";
+
+                    span {
+                        color: #96cc23;
+                    }
+                }
+
+                .down-caret {
+                    display: block;
+                    margin-top: 12px;
+                    cursor: pointer;
+
+                    .fa-circle-down {
+                        color: white;
+                        font-size: 2.5rem;
+                    }
+
+                    .fa-beat {
+                        --fa-animation-duration: 1.2s;
+                    }
+                } /* .down-caret */
+            } /* .flotante */
+        } /* .hero */
+    }
+</style>

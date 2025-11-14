@@ -1,110 +1,100 @@
-<main>
-    <h1>Inscripción Carrera 5km/10km</h1>
+---
 
-    <form
-        name="inscripcion-carrera"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        enctype="multipart/form-data"
-    >
-        <input type="hidden" name="form-name" value="inscripcion-carrera" />
+---
 
-        <div>
-            <label for="nombre">Nombre y Apellido:</label>
-            <input type="text" id="nombre" name="nombre" required />
-        </div>
+<form
+    name="inscripcion-carrera"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    enctype="multipart/form-data"
+>
+    <input type="hidden" name="form-name" value="inscripcion-carrera" />
 
-        <div>
-            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-            <input
-                type="date"
-                id="fecha_nacimiento"
-                name="fecha_nacimiento"
-                required
-            />
-        </div>
+    <div>
+        <label for="nombre">Nombre y Apellido:</label>
+        <input type="text" id="nombre" name="nombre" required />
+    </div>
 
-        <div>
-            <label for="distancia">Distancia:</label>
-            <select id="distancia" name="distancia" required>
-                <option value="">Selecciona una distancia</option>
-                <option value="5km">5km</option>
-                <option value="10km">10km</option>
-            </select>
-        </div>
+    <div>
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input
+            type="date"
+            id="fecha_nacimiento"
+            name="fecha_nacimiento"
+            required
+        />
+    </div>
 
-        <div>
-            <label for="talle">Talle de Remera:</label>
-            <select id="talle" name="talle" required>
-                <option value="">Selecciona un talle</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-            </select>
-        </div>
+    <div>
+        <label for="distancia">Distancia:</label>
+        <select id="distancia" name="distancia" required>
+            <option value="">Selecciona una distancia</option>
+            <option value="5km">5km</option>
+            <option value="10km">10km</option>
+        </select>
+    </div>
 
-        <div>
-            <label for="team">Team (opcional):</label>
-            <input type="text" id="team" name="team" />
-        </div>
+    <div>
+        <label for="talle">Talle de Remera:</label>
+        <select id="talle" name="talle" required>
+            <option value="">Selecciona un talle</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+    </div>
 
-        <div>
-            <label for="telefono">Número de Teléfono (WhatsApp):</label>
-            <input type="tel" id="telefono" name="telefono" required />
-        </div>
+    <div>
+        <label for="team">Team (opcional):</label>
+        <input type="text" id="team" name="team" />
+    </div>
 
-        <div>
-            <label for="comprobante"
-                >Número de Transferencia o Comprobante:</label
-            >
-            <input type="text" id="comprobante" name="comprobante" required />
-        </div>
+    <div>
+        <label for="telefono">Número de Teléfono (WhatsApp):</label>
+        <input type="tel" id="telefono" name="telefono" required />
+    </div>
 
-        <div>
-            <label for="foto">Subí tu foto (opcional):</label>
-            <input type="file" id="foto" name="foto" accept="image/*" />
-            <small
-                >⚠️ En el plan gratuito de Netlify no se guardará la imagen.</small
-            >
-        </div>
+    <div>
+        <label for="comprobante">Número de Transferencia o Comprobante:</label>
+        <input type="text" id="comprobante" name="comprobante" required />
+    </div>
 
-        <div class="terms">
-            <input type="checkbox" id="acepto" name="acepto" required />
-            <label for="acepto">Acepto los términos y condiciones</label>
-            <a
-                href="/termsandcondition"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="terms-link">Ver términos y condiciones</a
-            >
-        </div>
+    <div>
+        <label for="foto">Subí tu foto (opcional):</label>
+        <input type="file" id="foto" name="foto" accept="image/*" />
+        <small
+            >⚠️ En el plan gratuito de Netlify no se guardará la imagen.</small
+        >
+    </div>
 
-        <button type="submit">Enviar Inscripción</button>
-    </form>
-</main>
+    <div class="terms">
+        <input type="checkbox" id="acepto" name="acepto" required />
+        <label for="acepto">Acepto los términos y condiciones</label>
+        <a
+            href="/termsandcondition"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="terms-link">Ver términos y condiciones</a
+        >
+    </div>
+
+    <button type="submit">Enviar Inscripción</button>
+</form>
 
 <style>
-    main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 2rem;
-    }
-
     form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         max-width: 500px;
         width: 100%;
-        background: #fafafa;
+        background: #fafafaaa;
         padding: 2rem;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 12);
+        margin-block-start: 5rem;
     }
 
     input,
